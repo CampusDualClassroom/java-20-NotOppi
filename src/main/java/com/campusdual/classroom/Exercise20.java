@@ -6,10 +6,30 @@ import java.util.List;
 public class Exercise20 {
 
     public static List<Person> getPeopleList() {
+        List<Person> peopleList = new ArrayList<>();
 
+        peopleList.add(new Person("John", "Smith"));
+        peopleList.add(new Teacher("María", "Montessori", "Educación"));
+        peopleList.add(new PoliceOfficer("Jake", "Peralta", "B-99"));
+        peopleList.add(new Doctor("Gregory", "House", "Nefrología e infectología"));
+
+        return peopleList;
     }
 
     public static void showPeopleDetails(List<Person> stringList) {
+
+        for (Person person : stringList) {
+            System.out.println("---------------------------------------");
+            if (person instanceof Doctor) {
+                ((Doctor) person).getDetails();
+            } else if (person instanceof PoliceOfficer) {
+                ((PoliceOfficer) person).getDetails();
+            } else if (person instanceof Teacher) {
+                ((Teacher) person).getDetails();
+            } else{
+                person.getDetails();
+            }
+        }
 
     }
 
